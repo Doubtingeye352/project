@@ -5,7 +5,9 @@ from kivy.uix.label import Label
 from kivy.uix.image import Image
 import sys
 
-# updates made on 25 sep 2020 friday
+
+
+# updates made on 30 sep 2020 Wednesday 
 
 screen_helper = """
 ScreenManager:
@@ -107,6 +109,14 @@ ScreenManager:
         pos_hint: {'center_x':0.1,'center_y':0.1}
         on_press: root.manager.current = 'planets'
         
+    MDRectangleFlatButton:
+        text: 'start simulation'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+        on_press: import simulate_earth
+
+        
+ 
+
     Label:
         text: 'earth is the third farthest planet from the sun and the only planet in our solar system to have life.'
         color: 0, 0, 0, 1
@@ -126,7 +136,7 @@ ScreenManager:
         text: "earth is 149.6 million km away from the sun"
         color: 1, 0, 0, 1
         pos_hint: {'center_x': 0.5, 'center_y': 0.3}
-       
+
     Label:
         text: " The mass of earth is Mass: 5.972 × 10^24 kg"
         color: 1, 0, 0, 1
@@ -136,7 +146,7 @@ ScreenManager:
         text: "earths Radius is: 6,371 km"
         color: 1, 0, 0, 1
         pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-        
+
     Image:
         source: "/Users/ninaad/Desktop/earth.gif"
         pos_hint: {'center_x': 0.5, 'center_y': 0.8}
@@ -148,30 +158,45 @@ ScreenManager:
         text:'back'
         pos_hint: {'center_x':0.1,'center_y':0.1}
         on_press: root.manager.current = 'planets'
-        
+
     Label:
         text: "venus is the second furthest planet from the sun and is also the hottest planet in our solar system"
         color: 0, 0, 0, 1
         pos_hint: {'center_x':0.5,'center_y':0.7}
-        
+
     Label:
         text: "by now you might be wondering how is venus the hottest planet in the solar system? well the answer to that is..."
         color: 0,0,0,1
         pos_hint: {'center_x':0.5,'center_y':0.6}
-        
+
     Label:
         text: "It is because of venus's greenhouse like atmosphere and heats the surface to the melting point of lead which is"
         color: 0,0,0,1
-        
+
     Label:
         text: "about 880 degrees Fahrenheit (471 degrees Celsius)."
         color: 0,0,0,1
         pos_hint: {'center_x':0.5,'center_y':0.4 }
-        
+
     Label:
         text: "venus fun facts"
         color: 1,0,0,1
         pos_hint: {'center_x':0.5,'center_y':0.3 }
+
+    Label:
+        text: "venus was names after the Roman goddess of love and beauty "
+        color: 1,0,0,1
+        pos_hint: {'center_x':0.5,'center_y':0.2 }
+
+    Label:
+        text: "it is the second brightest object in the night sky after the moon"
+        color: 1,0,0,1
+        pos_hint: {'center_x':0.5,'center_y':0.1 }
+
+    Image:
+        source: "/Users/ninaad/Desktop/venus.gif"
+        pos_hint: {'center_x':0.5,'center_y':0.9 }
+
 
 <mars>:
     name: 'mars'
@@ -269,8 +294,6 @@ class jupiter(Screen):
     pass
 
 
-
-
 sm = ScreenManager()
 sm.add_widget(MenuScreen(name='menu'))
 sm.add_widget(planets(name="planets"))
@@ -290,10 +313,10 @@ class DemoApp(MDApp):
 
     def build(self):
         screen = Builder.load_string(screen_helper)
-        self.title = 'Planets Pre Download (under Development )'
+        self.title = 'Planets Pre Download (under Development)'
         return screen
-        
 
 
 DemoApp().run()
+
 
